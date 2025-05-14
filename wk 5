@@ -1,0 +1,65 @@
+AASIGNMENT 1 
+
+# Base class
+class Superhero:
+    def __init__(self, name, power, strength):
+        self.name = name
+        self.power = power
+        self._strength = strength  # Encapsulated attribute
+
+    def show_identity(self):
+        print(f"I am {self.name}, and my power is {self.power}!")
+
+    def get_strength(self):
+        return self._strength
+
+    def set_strength(self, value):
+        if value > 0:
+            self._strength = value
+        else:
+            print("Strength must be positive.")
+
+# Derived class
+class FlyingSuperhero(Superhero):
+    def __init__(self, name, power, strength, flight_speed):
+        super().__init__(name, power, strength)
+        self.flight_speed = flight_speed
+
+    def show_identity(self):
+        print(f"I am {self.name}, I fly at {self.flight_speed} km/h, and my power is {self.power}!")
+
+# Create instances
+hero1 = Superhero("Iron Shield", "Indestructibility", 85)
+hero2 = FlyingSuperhero("Skyhawk", "Sky Control", 90, 300)
+
+# Demonstration
+hero1.show_identity()
+print("Strength:", hero1.get_strength())
+hero2.show_identity()
+
+ASSIGNMENT 2.
+# Base class
+class Vehicle:
+    def move(self):
+        print("Vehicle is moving...")
+
+# Subclass Car
+class Car(Vehicle):
+    def move(self):
+        print("Driving 🚗")
+
+# Subclass Plane
+class Plane(Vehicle):
+    def move(self):
+        print("Flying ✈️")
+
+# Subclass Boat
+class Boat(Vehicle):
+    def move(self):
+        print("Sailing 🚢")
+
+# Demonstration of Polymorphism
+vehicles = [Car(), Plane(), Boat()]
+
+for v in vehicles:
+    v.move()
